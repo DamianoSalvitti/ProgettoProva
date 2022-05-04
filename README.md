@@ -8,7 +8,7 @@
 - flask_example.py, test_flask_example.py
   - flask
 - opencv_example.py, test_opencv_example.py
-  - opencv
+  - opencv-python, numpy
 
 ___
 > "This tutorial walks you through how to package a simple Python project.
