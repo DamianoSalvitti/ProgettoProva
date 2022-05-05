@@ -1,10 +1,13 @@
-import cv2, os
+import os
+import cv2
 import numpy as np
 
+# Make matrix
 def eye_unit8(s):
     eye = np.eye(s, dtype="uint8")
     return eye
 
+# Convert from RGB to Gray scale
 def rgb2gray(path):
     # Read, convert
     img = cv2.imread(path)
@@ -17,11 +20,12 @@ def rgb2gray(path):
 
     # Show
     cv2.imshow("New - Gray", gray)
-    print('\nPremere un tasto qualsiasi con la finestra "New - Gray" in primo piano.\n')
+    print('\nPlease press any key on the "New - Gray" window.\n')
     cv2.waitKey(0)
     
     return gray, np_array
 
+# Convert from RGB to BGR
 def rgb2bgr(path):
     # Read, convert
     img = cv2.imread(path)
@@ -34,26 +38,25 @@ def rgb2bgr(path):
 
     # Show
     cv2.imshow("New - BGR", bgr)
-    print('Premere un tasto qualsiasi con la finestra "New - BGR" in primo piano.')
+    print('\nPlease press any key on the "New - BGR" window.\n')
     cv2.waitKey(0)
 
     return bgr, np_array
 
 if __name__ == '__main__':
-    print('Stai eseguendo il file "opencv_example.py"!\n')
+    print('Running "computer_vision.py"!\n')
 
+    # Get photo's path
     cwd = os.getcwd()
-    path = cwd + "\..\\" + "example_photo.jpg"
+    path = cwd + "\..\\" + "photo.jpg"
 
     # Matrix eye
     matrix = eye_unit8(3)
-    print('Matrice identita\' di dimensione: 3')
+    print('Dimension of the identity matrix: 3')
     print(matrix)
 
-    # rgb2gray
+    # Convert
     gray, np_array_g = rgb2gray(path)
-
-    # rgb2bgr
     bgr, np_array_b = rgb2bgr(path)
 
     # Close all windows
