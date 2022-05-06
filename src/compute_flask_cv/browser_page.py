@@ -16,7 +16,8 @@ def homepage():
 
         "<h3 style='color:blue'>" +
         "Please visit the site: \"./contacts\"." +
-        "</h3>")
+        "</h3>"
+        )
     return hello
 
 # view function: "contacts" area
