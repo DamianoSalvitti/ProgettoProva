@@ -3,11 +3,13 @@
 
 **Per eseguire i diversi moduli / tests (*"test_\*"*) è necessario possedere le seguenti dipendenze** (in aggiunta a quelle gia' installe di default con la versione Python 3.10):
 
-- example.py, test_example.py
+- compute.py, test_compute.py
   - \-
-- flask_example.py, test_flask_example.py
+- browser_page.py, test_browser_page.py
   - flask
-- opencv_example.py, test_opencv_example.py
+- app.py, test_app.py
+  - flask, pytest
+- computer_vision.py, test_computer_vision.py
   - opencv-python, numpy
 
 ___
