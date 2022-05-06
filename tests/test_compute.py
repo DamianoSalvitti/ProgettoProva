@@ -1,13 +1,13 @@
 import sys
 import os
 
-# Reach the parent's path
+# Reach the root's path
 f_path = os.path.dirname(__file__)
-parent_path = os.path.join(f_path, '..')
-sys.path.append(os.path.abspath(parent_path))
+root_path = os.path.join(f_path, os.pardir)
+sys.path.append(os.path.abspath(root_path))
 
 # Import of the desired module
-from src.compute_flask_cv.compute import *
+import src.compute_flask_cv.compute as cmp
 
 # Test
 if __name__ == '__main__':
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     add = float(input('Inserte the number to be tested with "add_one": '))
 
     # Test - add_one
-    res_add = add_one(add)
+    res_add = cmp.add_one(add)
     print(f'Add 1 to {add} -> {res_add}\n')
 
     # Input - x_times_y
@@ -30,5 +30,5 @@ if __name__ == '__main__':
     times = times.split(sep=',')
     times0 = float(times[0])
     times1 = float(times[1])
-    res_times = x_times_y(times0,times1)
+    res_times = cmp.x_times_y(times0,times1)
     print(f'Multiply {times0} and {times1} -> {res_times}')

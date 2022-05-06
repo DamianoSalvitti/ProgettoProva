@@ -3,11 +3,11 @@ import os
 
 # Reach the parent's path
 f_path = os.path.dirname(__file__)
-parent_path = os.path.join(f_path, '..')
-sys.path.append(os.path.abspath(parent_path))
+root_path = os.path.join(f_path, os.pardir)
+sys.path.append(os.path.abspath(root_path))
 
 # Import of the desired module
-from src.compute_flask_cv.browser_page import *
+import src.compute_flask_cv.browser_page import bp
 
 # Test
 if __name__ == '__main__':
