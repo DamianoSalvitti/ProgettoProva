@@ -3,11 +3,11 @@ import os
 
 # Reach the parent's path
 f_path = os.path.dirname(__file__)
-parent_path = os.path.join(f_path, '..')
-sys.path.append(os.path.abspath(parent_path))
+root_path = os.path.join(f_path, os.pardir)
+sys.path.append(os.path.abspath(root_path))
 
 # Import of the desired module
-from src.compute_flask_cv.computer_vision import *
+import src.compute_flask_cv.computer_vision as cvn
 
 # Test
 if __name__ == '__main__':
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     size = int(input('Please insert the matrix dimension to be tested with "eye_unit8": '))
 
     # Test - eye_unit8
-    res_size = eye_unit8(size)
+    res_size = cvn.eye_unit8(size)
     print(f'Dimension of the identity matrix: {size}')
     print(res_size)
 
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     path = cwd + "\..\src\\" + "photo.jpg"
     match choice:
         case '1':
-            gray, np_array_g = rgb2gray(path)
+            gray, np_array_g = cvn.rgb2gray(path)
         case '2':
-            bgr, np_array_b = rgb2bgr(path)
-    cv2.destroyAllWindows()
+            bgr, np_array_b = cvn.rgb2bgr(path)
+    cvn.cv2.destroyAllWindows()
