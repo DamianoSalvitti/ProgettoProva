@@ -31,9 +31,9 @@ if __name__ == '__main__':
     bp.app.run()
     
     # Test
-    from app import index
+    from app import homepage
 
     def test_homepage():
-        assert index() == "Hello world"
+        assert homepage() == "Hello world"
 
     

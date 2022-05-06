@@ -9,5 +9,5 @@ sys.path.append(os.path.abspath(root_path))
 # Import of the desired module
 import src.compute_flask_cv.app as a
 
-def test_index():
-    assert a.index() == "Hello"
+def test_homepage():
+    assert a.homepage() == "Hello"
