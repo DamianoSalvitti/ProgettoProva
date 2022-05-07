@@ -9,7 +9,24 @@ sys.path.append(os.path.abspath(root_path))
 # Import of the desired module
 import src.compute_flask_cv.computer_vision as cvn
 
-# Test
+# pytest
+def test_eye_unit8():
+    size = 5
+    res_size = cvn.eye_unit8(size)
+    
+def test_rgb2gray():
+    cwd = os.getcwd()
+    path = cwd + "\\src\\" + "photo.jpg"
+    gray, np_array_g = cvn.rgb2gray(path)
+    cvn.cv2.destroyAllWindows()
+    
+def test_rgb2bgr():
+    cwd = os.getcwd()
+    path = cwd + "\\src\\" + "photo.jpg"
+    bgr, np_array_b = cvn.rgb2bgr(path)
+    cvn.cv2.destroyAllWindows()
+
+# Test as main
 if __name__ == '__main__':
 
     # Module correctly imported 
@@ -37,4 +54,3 @@ if __name__ == '__main__':
             gray, np_array_g = cvn.rgb2gray(path)
         case '2':
             bgr, np_array_b = cvn.rgb2bgr(path)
-    cvn.cv2.destroyAllWindows()

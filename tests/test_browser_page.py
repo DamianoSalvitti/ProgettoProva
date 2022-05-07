@@ -11,7 +11,7 @@ import src.compute_flask_cv.browser_page as bp
 
 # pytest
 def test_homepage():
-    assert bp.homepage() == (
+    text_homepage = (
         "<h1 style='color:red'>" +
         "Hello World!" +
         "</h1>" +
@@ -22,10 +22,14 @@ def test_homepage():
 
         "<h3 style='color:blue'>" +
         "Please visit the site: \"./contacts\"." +
-        "</h3>"
-        )
+        "</h3>")
+    assert bp.homepage() == text_homepage
 
-# Test
+def test_contacts():
+    text_contacts = {"data": [+342111, +325555]}
+    assert bp.contacts() == text_contacts
+
+# Test as main
 if __name__ == '__main__':
 
     # Module correctly imported

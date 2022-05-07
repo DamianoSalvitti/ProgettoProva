@@ -9,7 +9,14 @@ sys.path.append(os.path.abspath(root_path))
 # Import of the desired module
 import src.compute_flask_cv.compute as cmp
 
-# Test
+# pytest
+def test_add_one():
+    assert cmp.add_one(1) == 2
+
+def test_x_times_y():
+    assert cmp.x_times_y(2,5) == 10
+
+# Test as main
 if __name__ == '__main__':
 
     # Module correctly imported 

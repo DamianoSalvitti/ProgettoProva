@@ -23,9 +23,10 @@ def homepage():
 # view function: "contacts" area
 @app.route("/contacts") # URL
 def contacts():
-    import jsonify
+    #import jsonify
     contacts = {"data": [+342111, +325555]}
-    return jsonify(contacts)
+    #return jsonify(contacts)
+    return contacts
 
 if __name__ == '__main__':
     print('Running "browser_page.py"!\n')

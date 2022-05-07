@@ -12,3 +12,4 @@ import src.compute_flask_cv.app as a
 # pytest
 def test_homepage():
     assert a.homepage() == "Hello"
+
