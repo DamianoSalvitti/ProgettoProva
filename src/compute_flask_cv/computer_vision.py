@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     # Get photo's path
     cwd = os.getcwd()
-    path = cwd + "\..\\" + "photo.jpg"
+    path = cwd + "\\..\\" + "photo.jpg"
 
     # Matrix eye
     matrix = eye_unit8(3)

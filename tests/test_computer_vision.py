@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     # Test - rgb2gray, rgb2bgr
     cwd = os.getcwd()
-    path = cwd + "\..\src\\" + "photo.jpg"
+    path = cwd + "\\..\\src\\" + "photo.jpg"
     match choice:
         case '1':
             gray, np_array_g = cvn.rgb2gray(path)
