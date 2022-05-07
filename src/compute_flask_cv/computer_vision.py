@@ -14,9 +14,9 @@ def rgb2gray(path):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Write
-    new_path_idx = path.rfind("\\")
-    new_path = path[0:new_path_idx]
-    np_array = cv2.imwrite(new_path + "\\new_photo_gray.jpg", gray)
+    f_path = os.path.dirname(__file__)
+    new_path = os.path.join(f_path,os.pardir,"A_Cannone_gray.jpg")
+    np_array = cv2.imwrite(new_path, gray)
 
     # Show
     cv2.imshow("New - Gray", gray)
@@ -32,9 +32,9 @@ def rgb2bgr(path):
     bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
 
     # Write
-    new_path_idx = path.rfind("\\")
-    new_path = path[0:new_path_idx]
-    np_array = cv2.imwrite(new_path + "\\new_photo_bgr.jpg", bgr)
+    f_path = os.path.dirname(__file__)
+    new_path = os.path.join(f_path,os.pardir,"A_Cannone_bgr.jpg")
+    np_array = cv2.imwrite(new_path, bgr)
 
     # Show
     cv2.imshow("New - BGR", bgr)
@@ -46,14 +46,14 @@ def rgb2bgr(path):
 if __name__ == '__main__':
     print('Running "computer_vision.py"!\n')
 
-    # Get photo's path
-    cwd = os.getcwd()
-    path = cwd + "\\..\\" + "photo.jpg"
-
     # Matrix eye
     matrix = eye_unit8(3)
     print('Dimension of the identity matrix: 3')
     print(matrix)
+
+    # Get photo's path
+    cwd = os.getcwd()
+    path = os.path.join(cwd,os.pardir,"A_Cannone.jpg")
 
     # Convert
     gray, np_array_g = rgb2gray(path)

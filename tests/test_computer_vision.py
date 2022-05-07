@@ -16,13 +16,13 @@ def test_eye_unit8():
     
 def test_rgb2gray():
     cwd = os.getcwd()
-    path = cwd + "\\src\\" + "photo.jpg"
+    path = os.path.join(cwd,"src","A_Cannone.jpg")
     gray, np_array_g = cvn.rgb2gray(path)
     cvn.cv2.destroyAllWindows()
     
 def test_rgb2bgr():
     cwd = os.getcwd()
-    path = cwd + "\\src\\" + "photo.jpg"
+    path = os.path.join(cwd,"src","A_Cannone.jpg")
     bgr, np_array_b = cvn.rgb2bgr(path)
     cvn.cv2.destroyAllWindows()
 
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     # Test - rgb2gray, rgb2bgr
     cwd = os.getcwd()
-    path = cwd + "\\..\\src\\" + "photo.jpg"
+    path = os.path.join(cwd,os.pardir,"src","A_Cannone.jpg")
     match choice:
         case '1':
             gray, np_array_g = cvn.rgb2gray(path)
