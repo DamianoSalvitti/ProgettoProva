@@ -42,7 +42,7 @@ if __name__ == '__main__':
     print(res_size)
 
     # Input - rgb2gray, rgb2bgr
-    choice = input('\nChoose the number to create and visualize the converted photo:\n' +
+    choice = input('\nChoose the number to have the converted photo created:\n' +
                    '1: RGB -> Gray scale\n' +
                    '2: RGB -> BRG\n')
 

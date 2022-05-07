@@ -17,11 +17,6 @@ def rgb2gray(path):
     f_path = os.path.dirname(__file__)
     new_path = os.path.join(f_path,os.pardir,"A_Cannone_gray.jpg")
     np_array = cv2.imwrite(new_path, gray)
-
-    # Show
-    cv2.imshow("New - Gray", gray)
-    print('\nPlease press any key on the "New - Gray" window.\n')
-    cv2.waitKey(0)
     
     return gray, np_array
 
@@ -35,11 +30,6 @@ def rgb2bgr(path):
     f_path = os.path.dirname(__file__)
     new_path = os.path.join(f_path,os.pardir,"A_Cannone_bgr.jpg")
     np_array = cv2.imwrite(new_path, bgr)
-
-    # Show
-    cv2.imshow("New - BGR", bgr)
-    print('\nPlease press any key on the "New - BGR" window.\n')
-    cv2.waitKey(0)
 
     return bgr, np_array
 
@@ -58,6 +48,15 @@ if __name__ == '__main__':
     # Convert
     gray, np_array_g = rgb2gray(path)
     bgr, np_array_b = rgb2bgr(path)
+
+    # Show
+    cv2.imshow("New - Gray", gray)
+    print('\nPlease press any key on the "New - Gray" window.\n')
+    cv2.waitKey(0)
+
+    cv2.imshow("New - BGR", bgr)
+    print('\nPlease press any key on the "New - BGR" window.\n')
+    cv2.waitKey(0)
 
     # Close all windows
     cv2.destroyAllWindows()
