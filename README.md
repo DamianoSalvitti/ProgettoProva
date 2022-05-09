@@ -8,9 +8,9 @@
 - browser_page.py, test_browser_page.py
   - flask, pytest
 - compute.py, test_compute.py
-  - \-
+  - pytest
 - computer_vision.py, test_computer_vision.py
-  - opencv-python, numpy
+  - opencv-python, numpy, pytest
 
 ___
 > "This tutorial walks you through how to package a simple Python project.
