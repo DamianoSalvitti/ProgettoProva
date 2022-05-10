@@ -8,7 +8,7 @@ on:
     branches: [ develop ]
 
 # A workflow run is made up of one or more jobs:
-#   every job runs in parallel with others jobs
+#   every job runs in parallel with others jobs (or sequentially if specified)
 #   every job sequentially runs its instructions
 jobs:
   # Job 1 - On Ubuntu
@@ -38,7 +38,7 @@ jobs:
 
       # Runs the shell script
       - name: Step 5 - Run the shell script
-        run: sh ./github-action-script.sh
+        run: sh ./simple-actions-script.sh
 
       # Set up JDK
       - name: Step 6 - Set up JDK 1.8
@@ -101,5 +101,4 @@ jobs:
       - name: Step 5 - Post-build disc space
         run: ls
 
-        # MATRIX
         # CACHE
