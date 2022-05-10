@@ -35,7 +35,7 @@ jobs:
           java --version
           echo
           echo Is Git installed?
-          git -- version
+          git --version
           echo
           echo What about build tools?
           mvn --version
