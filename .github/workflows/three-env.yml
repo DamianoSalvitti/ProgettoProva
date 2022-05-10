@@ -6,9 +6,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  push:
-    branches: [ develop ]
-
 jobs:
   # First job to run
   DEV:
