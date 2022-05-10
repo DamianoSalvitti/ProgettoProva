@@ -11,7 +11,7 @@ on:
 #   every job runs in parallel with others jobs
 #   every job sequentially runs its instructions
 jobs:
-  # Job 1 - called "build-on-ubuntu"
+  # Job 1 - On Ubuntu
   build-on-ubuntu:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -54,7 +54,7 @@ jobs:
       - name: Step 8 - Post-build disc space
         run: df
 
-  # Job 2 - called "build-on-windows"
+  # Job 2 - On Windows
   build-on-windows:
     runs-on: windows-latest
 
@@ -73,5 +73,33 @@ jobs:
       - name: Step 4 - Check Windows execution policy
         run: Get-ExecutionPolicy
 
-      - name: Step 5 - List Windows environment variable
+      - name: Step 5 - List Windows environment variables
         run: env
+
+      - name: Step 6 - Post-build disc space
+        run: ls
+
+  # Job 3 - On macOS
+  build-on-macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Step 1 - Pre-build disc space
+        run: ls
+
+      - name: Step 2 - Checkout to develop branch
+        uses: actions/checkout@v2
+
+      - name: Step 3 - Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Step 4 - List macOS environment variables
+        run: env
+
+      - name: Step 5 - Post-build disc space
+        run: ls
+
+        # MATRIX
+        # CACHE
