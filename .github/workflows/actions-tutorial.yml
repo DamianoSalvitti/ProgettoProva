@@ -53,7 +53,9 @@ jobs:
           echo
           echo 08. Who is running this script?
           whoami
-          echo 09. How is the dic laid out?
+          echo
+          echo 09. How is the disc laid out?
           df
+          echo
           echo 10. What environment variables are available?
           env
