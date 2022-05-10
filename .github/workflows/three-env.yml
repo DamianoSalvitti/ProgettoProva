@@ -1,6 +1,6 @@
-# Manual workflow for three different environments
+# Workflow for three different environments
 
-name: Manual workflow - Three environment
+name: Workflow - Three environment
 
 on:
   push:
