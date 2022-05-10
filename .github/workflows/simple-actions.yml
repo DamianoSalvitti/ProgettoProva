@@ -13,6 +13,7 @@ on:
 jobs:
   # Job 1 - On Ubuntu
   build-on-ubuntu:
+    name: Starting - Simple GitHub Actions
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 

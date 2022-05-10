@@ -14,6 +14,7 @@ permissions:
 
 jobs:
   build:
+    name: Starting - Applications Test
     runs-on: ubuntu-latest
 
     steps:
