@@ -4,7 +4,7 @@ name: Workflow - Three environment
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
 
 jobs:
   # First job to run
