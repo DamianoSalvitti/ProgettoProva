@@ -1,0 +1,54 @@
+# Manual workflow for three different environments
+
+name: Manual workflow - Three environment
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    
+jobs:
+  # First job to run
+  DEV:
+    runs-on: ubuntu-latest
+
+    environment: DEV
+
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v2
+
+      - name: Step 2 - Run a script
+        run: |
+          echo "I am running a job in the DEV environment"
+
+  # Second job to run
+  QA:
+    runs-on: ubuntu-latest
+
+    environment: QA
+
+    needs: DEV
+
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v2
+
+      - name: Step 2 - Run a script
+        run: |
+          echo "I am running a job in the QA environment"
+
+  # Third job to run
+  PROD:
+    runs-on: ubuntu-latest
+
+    environment: PROD
+
+    needs: QA
+
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v2
+
+      - name: Step 2 - Run a script
+        run: |
+          echo "I am running a job in the QA environment"
