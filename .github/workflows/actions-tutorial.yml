@@ -30,3 +30,7 @@ jobs:
         run: |
           echo This is a multi-line script
           echo directly written in the .yml file
+
+      # Runs the shell script
+      - name: Run the shell script
+        run: sh ./github-action-script.sh
