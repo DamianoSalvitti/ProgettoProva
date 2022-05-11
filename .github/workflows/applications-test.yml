@@ -48,5 +48,5 @@ jobs:
 
     - name: Step 6 - Test with pytest
       run: |
-        # export PYTHONPATH=$PYTHONPATH:$(pwd)/src
+        export PYTHONPATH=$PYTHONPATH:$(pwd)/src
         pytest
