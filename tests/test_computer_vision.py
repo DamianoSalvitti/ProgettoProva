@@ -1,30 +1,40 @@
-import sys
 import os
-'''
-# Reach the parent's path
-f_path = os.path.dirname(__file__)
-root_path = os.path.join(f_path, os.pardir)
-sys.path.append(os.path.abspath(root_path))
-'''
+
+# # Block avoided in order to test the "export PYTHONPATH=src"
+# # command in the "applications-test.yml" file
+# import sys
+#
+# # Reach the parent's path
+# f_path = os.path.dirname(__file__)
+# root_path = os.path.join(f_path, os.pardir)
+# sys.path.append(os.path.abspath(root_path))
+
 # Import of the desired module
 import src.compute_flask_cv.computer_vision as cvn
 
+
 # pytest
 def test_eye_unit8():
-    size = 5
-    res_size = cvn.eye_unit8(size)
-    
+    sz = 2
+    res_sz = cvn.eye_unit8(sz)
+    assert res_sz == [[1, 0], [0, 1]]
+
+
 def test_rgb2gray():
-    cwd = os.getcwd()
-    path = os.path.join(cwd,"src","A_Cannone.jpg")
-    gray, np_array_g = cvn.rgb2gray(path)
+    current_wd = os.getcwd()
+    cannon_path = os.path.join(current_wd, "src", "A_Cannone.jpg")
+    cvn.rgb2gray(cannon_path)
     cvn.cv2.destroyAllWindows()
-    
+    assert os.path.exists(os.path.join(current_wd, "src", "A_Cannone_gray.jpg")) == 1
+
+
 def test_rgb2bgr():
-    cwd = os.getcwd()
-    path = os.path.join(cwd,"src","A_Cannone.jpg")
-    bgr, np_array_b = cvn.rgb2bgr(path)
+    current_wd = os.getcwd()
+    cannon_path = os.path.join(current_wd, "src", "A_Cannone.jpg")
+    cvn.rgb2gray(cannon_path)
     cvn.cv2.destroyAllWindows()
+    assert os.path.exists(os.path.join(current_wd, "src", "A_Cannone_bgr.jpg")) == 1
+
 
 # Test as main
 if __name__ == '__main__':
@@ -48,7 +58,7 @@ if __name__ == '__main__':
 
     # Test - rgb2gray, rgb2bgr
     cwd = os.getcwd()
-    path = os.path.join(cwd,os.pardir,"src","A_Cannone.jpg")
+    path = os.path.join(cwd, os.pardir, "src", "A_Cannone.jpg")
     match choice:
         case '1':
             gray, np_array_g = cvn.rgb2gray(path)

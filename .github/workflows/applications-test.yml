@@ -48,5 +48,5 @@ jobs:
 
     - name: Step 6 - Test with pytest
       run: |
-        export PYTHONPATH=src
+        export PYTHONPATH=src # command to avoid the root path appending to the sys.path
         pytest
