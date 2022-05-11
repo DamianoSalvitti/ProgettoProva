@@ -17,7 +17,7 @@ import src.compute_flask_cv.computer_vision as cvn
 def test_eye_unit8():
     sz = 2
     res_sz = cvn.eye_unit8(sz)
-    assert res_sz == [[1, 0], [0, 1]]
+    assert (res_sz == [[1, 0], [0, 1]]).all()
 
 
 def test_rgb2gray():
