@@ -1,13 +1,17 @@
-import sys
 import os
 
-# Reach the parent's path
-f_path = os.path.dirname(__file__)
-root_path = os.path.join(f_path, os.pardir)
-sys.path.append(os.path.abspath(root_path))
+# # Block avoided in order to test the "export PYTHONPATH=src"
+# # command in the "applications-test.yml" file
+# import sys
+#
+# # Reach the parent's path
+# f_path = os.path.dirname(__file__)
+# root_path = os.path.join(f_path, os.pardir)
+# sys.path.append(os.path.abspath(root_path))
 
 # Import of the desired module
 import src.compute_flask_cv.browser_page as bp
+
 
 # pytest
 def test_homepage():
@@ -25,9 +29,11 @@ def test_homepage():
         "</h3>")
     assert bp.homepage() == text_homepage
 
+
 def test_contacts():
     text_contacts = {"data": [+342111, +325555]}
     assert bp.contacts() == text_contacts
+
 
 # Test as main
 if __name__ == '__main__':
@@ -37,6 +43,8 @@ if __name__ == '__main__':
     print('Start testing "browser_page.py"\n')
     
     # Instructions
+    f_path = os.path.dirname(__file__)
+    root_path = os.path.join(f_path, os.pardir)
     print('\nHELP')
     print(f'1) Let the local server be activated from the terminal to have access to the contents:\n' +
           f'   Terminal -  Linux  > export FLASK_APP={root_path}\\src\\compute_flask_cv\\browser_page.py\n' +

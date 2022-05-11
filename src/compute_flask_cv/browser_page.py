@@ -2,8 +2,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 # view function: "homepage" area
-@app.route("/") # URL
+@app.route("/")  # URL
 def homepage():
     hello = (
         "<h1 style='color:red'>" +
@@ -20,13 +21,15 @@ def homepage():
         )
     return hello
 
+
 # view function: "contacts" area
-@app.route("/contacts") # URL
+@app.route("/contacts")  # URL
 def contacts():
-    #import jsonify
-    contacts = {"data": [+342111, +325555]}
-    #return jsonify(contacts)
-    return contacts
+    # import jsonify
+    contacts_page = {"data": [+342111, +325555]}
+    # return jsonify(contacts)
+    return contacts_page
+
 
 if __name__ == '__main__':
     print('Running "browser_page.py"!\n')
