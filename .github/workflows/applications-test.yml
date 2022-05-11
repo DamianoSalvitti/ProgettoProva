@@ -15,16 +15,20 @@ permissions:
 jobs:
   build:
     name: Starting - Applications Test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.9', '3.10']
 
     steps:
     - name: Step 1 - Checkout to the "develop" branch
       uses: actions/checkout@v3
 
-    - name: Step 2 - Set up Python 3.10
+    - name: Step 2 - Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
-        python-version: "3.10"
+        python-version: ${{ matrix.python-version }}
 
     - name: Step 3 - Install dependencies
       run: |

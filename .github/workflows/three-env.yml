@@ -9,7 +9,12 @@ on:
 jobs:
   # First job to run
   DEV:
-    runs-on: ubuntu-latest
+    name: Starting - Three environment (DEV)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest]
+        python-version: [ '3.9', '3.10']
 
     environment: DEV
 
@@ -21,9 +26,19 @@ jobs:
         run: |
           echo "I am running a job in the DEV environment"
 
+      - name: Step 3 - Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
   # Second job to run
   QA:
-    runs-on: ubuntu-latest
+    name: Starting - Three environment (QA)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+        python-version: [ '3.9', '3.10' ]
 
     environment: QA
 
@@ -37,12 +52,21 @@ jobs:
         run: |
           echo "I am running a job in the QA environment"
 
+      - name: Step 3 - Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
   # Third job to run
   PROD:
-    runs-on: ubuntu-latest
+    name: Starting - Three environment (PROD)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+        python-version: [ '3.9', '3.10' ]
 
     environment: PROD
-
     needs: QA
 
     steps:
@@ -52,3 +76,8 @@ jobs:
       - name: Step 2 - Run a script
         run: |
           echo "I am running a job in the PROD environment"
+
+      - name: Step 3 - Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
